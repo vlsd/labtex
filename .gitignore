@@ -1,0 +1,7 @@
+auto/
+
+*.zip
+*.gz
+*.bz2
+*.exe
+*.7z

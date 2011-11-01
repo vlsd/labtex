@@ -1,18 +1,43 @@
 %-----------------------------------------------------
 % new commands
-\newcommand{\degree}{\ensuremath{^\circ}}   
-\newcommand{\tr}{\ensuremath{^\textrm{T}}}  
 \newcommand{\bbar}[1]{\ensuremath{\bar{\bar{#1}}}}
 \newcommand{\p}[1][]{\ensuremath{\partial_{#1}}}
 \newcommand{\partl}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
 \newcommand{\tpartl}[2]{\ensuremath{\tfrac{\partial #1}{\partial #2}}}
 \newcommand{\derv}[2]{\ensuremath{\frac{d #1}{d #2}}}
 \newcommand{\tderv}[2]{\ensuremath{\tfrac{d #1}{d #2}}}
-\newcommand{\ep}{\ensuremath{\varepsilon}}
+
 \newcommand{\norm}[1]{\ensuremath{\left\|#1\right\|}} % a norm
 \newcommand{\inner}[2]{\ensuremath{\left< #1, #2 \right>}} % an inner product
-\newcommand{\argmin}[1]{\ensuremath{\underset{#1}{\operatorname{argmin}}}}
-\newcommand{\argmax}[1]{\ensuremath{\underset{#1}{\operatorname{argmax}}}}
+\newcommand{\argmin}[1]{\ensuremath{\underset{#1}{\operatorname{arg\,min}}}}
+\newcommand{\argmax}[1]{\ensuremath{\underset{#1}{\operatorname{arg\,max}}}}
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}} %% scientific
+\providecommand{\abs}[1]{\left| #1 \right|} %% absolute value
+%% \providecommand{\tr}[1]{\ensuremath{#1 ^{\mathrm{\scriptscriptstyle T}}}}
+
+
+%% math operators:
+\DeclareMathOperator{\spn}{span}        %% span
+\DeclareMathOperator{\diag}{diag}       %% diag
+\DeclareMathOperator{\sgn}{sgn}         %% signum
+\DeclareMathOperator{\rank}{rank}       %% rank
+\DeclareMathOperator{\orth}{orth}       %% orthogonal
+\DeclareMathOperator{\Tr}{Tr}           %% trace
+\DeclareMathOperator{\im}{Im}           %% imaginary
+\DeclareMathOperator{\supp}{sup}        %% supremum
+\DeclareMathOperator{\inff}{inf}        %% infimum
+
+
+%% constants
+\newcommand{\real}{{\ensuremath{{\mathbb{R}}}}} %% reals
+\newcommand{\inertia}{\mathbb{I}}               %% intertia tensor
+\newcommand{\ccos}{\text{c}}                    %% cos abbreviation
+\newcommand{\ssin}{\text{s}}                    %% sin abbreviation
+\newcommand{\ep}{\ensuremath{\varepsilon}}
+\newcommand{\degree}{\ensuremath{^\circ}}   
+\newcommand{\tr}{\ensuremath{^\textrm{\scriptscriptstyle T}}}  
+
 
 %---------------------------------------------------
 % automagically re-export the svgs to pdf_tex format
@@ -38,7 +63,6 @@
 
 %----------------------------
 % common font macros
-\newfont{\bboard}{msbm10 scaled\magstephalf}
 \def\D{\ensuremath{\textrm{D}}}
-\def\RR{ {\mbox{\bboard R}}}
-
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}        
+\DeclareMathAlphabet{\mathtst}{OMS}{cmsy}{m}{n}
