@@ -1,0 +1,44 @@
+%-----------------------------------------------------
+% new commands
+\newcommand{\degree}{\ensuremath{^\circ}}   
+\newcommand{\tr}{\ensuremath{^\textrm{T}}}  
+\newcommand{\bbar}[1]{\ensuremath{\bar{\bar{#1}}}}
+\newcommand{\p}[1][]{\ensuremath{\partial_{#1}}}
+\newcommand{\partl}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\tpartl}[2]{\ensuremath{\tfrac{\partial #1}{\partial #2}}}
+\newcommand{\derv}[2]{\ensuremath{\frac{d #1}{d #2}}}
+\newcommand{\tderv}[2]{\ensuremath{\tfrac{d #1}{d #2}}}
+\newcommand{\ep}{\ensuremath{\varepsilon}}
+\newcommand{\norm}[1]{\ensuremath{\left\|#1\right\|}} % a norm
+\newcommand{\inner}[2]{\ensuremath{\left< #1, #2 \right>}} % an inner product
+\newcommand{\argmin}[1]{\ensuremath{\underset{#1}{\operatorname{argmin}}}}
+\newcommand{\argmax}[1]{\ensuremath{\underset{#1}{\operatorname{argmax}}}}
+
+%---------------------------------------------------
+% automagically re-export the svgs to pdf_tex format
+% requires inkscape. modify the path below as appropriate
+\newcommand{\executeiffilenewer}[3]{%
+  \ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+  {\pdffilemoddate{#2}}>0%
+  {\immediate\write18{#3}}\fi%
+} 
+\newcommand{\includesvg}[1]{%
+  \executeiffilenewer{#1.svg}{#1.pdf}%
+  {/Applications/Inkscape.app/Contents/Resources/bin/inkscape -z -D --file=#1.svg %
+  --export-pdf=#1.pdf --export-latex}%
+  \input{#1.pdf_tex}%
+}
+
+%----------------------------
+% theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{principle}{Principle}
+\newtheorem{example}{Example}
+
+%----------------------------
+% common font macros
+\newfont{\bboard}{msbm10 scaled\magstephalf}
+\def\D{\ensuremath{\textrm{D}}}
+\def\RR{ {\mbox{\bboard R}}}
+
