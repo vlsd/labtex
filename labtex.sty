@@ -17,6 +17,7 @@
 %---------------------------------------------------
 % automagically re-export the svgs to pdf_tex format
 % requires inkscape. modify the path below as appropriate
+\def\inkscape{/Applications/Inkscape.app/Contents/Resources/bin/inkscape }
 \newcommand{\executeiffilenewer}[3]{%
   \ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
   {\pdffilemoddate{#2}}>0%
@@ -24,8 +25,7 @@
 } 
 \newcommand{\includesvg}[1]{%
   \executeiffilenewer{#1.svg}{#1.pdf}%
-  {/Applications/Inkscape.app/Contents/Resources/bin/inkscape -z -D --file=#1.svg %
-  --export-pdf=#1.pdf --export-latex}%
+  {\inkscape -z -D --file=#1.svg --export-pdf=#1.pdf --export-latex}%
   \input{#1.pdf_tex}%
 }
 
