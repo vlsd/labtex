@@ -1,0 +1,22 @@
+% automagically re-export the svgs to pdf_tex format
+% requires inkscape. modify the path below as appropriate
+% also requires the '-shell-escape' flag to be passed to the latex compiler
+
+%% change the variable below to suit your installation
+\def\inkscape{/Applications/Inkscape.app/Contents/Resources/bin/inkscape }
+
+%% command that checks for changes to the .svg file and
+%% automatically re-exports it, as needed
+\newcommand{\executeiffilenewer}[3]{%
+  \ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+  {\pdffilemoddate{#2}}>0%
+  {\immediate\write18{#3}}\fi%
+} 
+
+%% wrapper for \executeiffilenewer and importer for the resulting format
+\newcommand{\includesvg}[1]{%
+  \executeiffilenewer{#1.svg}{#1.pdf}%
+  {\inkscape -z -D --file=#1.svg --export-pdf=#1.pdf --export-latex}%
+  \input{#1.pdf_tex}%
+}
+

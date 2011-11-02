@@ -1,3 +1,7 @@
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
 %-----------------------------------------------------
 % new commands
 \newcommand{\bbar}[1]{\ensuremath{\bar{\bar{#1}}}}
@@ -12,6 +16,8 @@
 \newcommand{\argmin}[1]{\ensuremath{\underset{#1}{\operatorname{arg\,min}}}}
 \newcommand{\argmax}[1]{\ensuremath{\underset{#1}{\operatorname{arg\,max}}}}
 
+\newcommand{\bbold}[1]{\ensuremath{\mathbb{#1}}}
+
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}} %% scientific
 \providecommand{\abs}[1]{\left| #1 \right|} %% absolute value
 %% \providecommand{\tr}[1]{\ensuremath{#1 ^{\mathrm{\scriptscriptstyle T}}}}
@@ -19,6 +25,7 @@
 
 %% math operators:
 \DeclareMathOperator{\spn}{span}        %% span
+\DeclareMathOperator{\nspace}{null}       %% nullspace
 \DeclareMathOperator{\diag}{diag}       %% diag
 \DeclareMathOperator{\sgn}{sgn}         %% signum
 \DeclareMathOperator{\rank}{rank}       %% rank
@@ -30,29 +37,13 @@
 
 
 %% constants
-\newcommand{\real}{{\ensuremath{{\mathbb{R}}}}} %% reals
+\newcommand{\reals}{\bbold{R}} %% reals
 \newcommand{\inertia}{\mathbb{I}}               %% intertia tensor
 \newcommand{\ccos}{\text{c}}                    %% cos abbreviation
 \newcommand{\ssin}{\text{s}}                    %% sin abbreviation
 \newcommand{\ep}{\ensuremath{\varepsilon}}
 \newcommand{\degree}{\ensuremath{^\circ}}   
-\newcommand{\tr}{\ensuremath{^\textrm{\scriptscriptstyle T}}}  
-
-
-%---------------------------------------------------
-% automagically re-export the svgs to pdf_tex format
-% requires inkscape. modify the path below as appropriate
-\def\inkscape{/Applications/Inkscape.app/Contents/Resources/bin/inkscape }
-\newcommand{\executeiffilenewer}[3]{%
-  \ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
-  {\pdffilemoddate{#2}}>0%
-  {\immediate\write18{#3}}\fi%
-} 
-\newcommand{\includesvg}[1]{%
-  \executeiffilenewer{#1.svg}{#1.pdf}%
-  {\inkscape -z -D --file=#1.svg --export-pdf=#1.pdf --export-latex}%
-  \input{#1.pdf_tex}%
-}
+\newcommand{\tr}{\ensuremath{^\mathrm{\scriptscriptstyle T}}}  
 
 %----------------------------
 % theorem environments
