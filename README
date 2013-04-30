@@ -1,9 +1,7 @@
-To install (on *nix systems, including OS X):
-$ cd
-$ mkdir texmf && cd texmf
-$ mkdir tex && cd tex
-$ mkdir latex && cd latex
-$ mkdir labtex
+To install locally on *nix systems, including OS X:
+
+$ mkdir -p ~/.texmf/tex/latex/labtex
+$ cp *.sty ~/.texmk/tex/latex/labtex/
 
 Add the labtex.sty file in this new folder and, in your .tex document, add
 
